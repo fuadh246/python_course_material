@@ -47,7 +47,10 @@ with open('file_handling/writing_file_example.txt','w') as file:
     file.write('This text will be written in a newly created file\n')
 
 # removing files
-import os 
+import os
+
+from pexpect import EOF
+from sqlalchemy import null 
 if os.path.exists('file_handling/writing_file_example.txt'):
     os.remove('file_handling/writing_file_example.txt')
 else:
@@ -114,3 +117,20 @@ with open('file_handling/countries.csv') as file:
             print(f'{row[0]} is a Student. He lives in {row[1]}, {row[2]}')
             line_count+=1
     print(f'TOTAL LINE = {line_count}')
+
+
+print()
+print()
+
+with open('file_handling/obama.txt') as file:
+    number_of_lines=0
+    number_of_words=0
+    for line in file:
+        line = file.readline()
+        number_of_lines+=1
+        print(line)
+        for words in line:
+            words = line.split()
+            number_of_words+=1
+    print(number_of_lines)
+    print(number_of_words)
