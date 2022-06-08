@@ -1,6 +1,7 @@
 
 
 
+from base64 import standard_b64decode
 from urllib import response
 import webbrowser # web browser module to open websites
 
@@ -57,5 +58,47 @@ countries = response.json()
 
 from mypacakge import greet
 print(greet.greet_person('Fuad','hassan'))
+
+
+print()
+print()
+
+import requests
+url =  'http://www.gutenberg.org/files/1112/1112.txt'
+words = dict()
+response = requests.get(url)
+if response.status_code == 200:
+    list_of_words = response.text.split()
+    for word in list_of_words:
+        if word not in words:
+            words[word] = 1
+        else:
+            words[word] += 1
+words = dict(sorted(words.items(), key=lambda item: item[1],reverse=True)).items()
+print(list(words)[:10])
+
+#[{"weight":{"imperial":"7  -  10","metric":"3 - 5"}
+
+import requests
+from statistics import *
+url = 'https://api.thecatapi.com/v1/breeds'
+#cats_dict = dict()
+response = requests.get(url)
+#print(response.headers)
+cats_dict = response.json()
+weight_list =[]
+print(type(cats_dict))
+for cat in cats_dict:
+    weight = cat['weight']['metric'].split()
+    #mean(int(weight[0]))
+    weight = cat['weight']['metric'].split()
+    weight_list.append(int(weight[0]))
+print(f'Mean : {mean(weight_list)}')
+print(f'Max : {max(weight_list)}')
+print(f'Min : {min(weight_list)}')
+print(f'Median : {median(weight_list)}')
+
+
+
 
 
