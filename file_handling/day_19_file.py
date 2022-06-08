@@ -52,3 +52,22 @@ if os.path.exists('file_handling/writing_file_example.txt'):
     os.remove('file_handling/writing_file_example.txt')
 else:
     print('file does not exist')
+
+# work with json file
+
+import json
+# python dictionary
+person = {
+    "name": "Asabeneh",
+    "country": "Finland",
+    "city": "Helsinki",
+    "skills": ["JavaScrip", "React", "Python"]
+}
+with open('file_handling/json_example.json', 'w', encoding='utf-8') as file:
+        json.dump(person, file, ensure_ascii=False, indent=4)
+
+with open('file_handling/json_example.json', encoding='utf-8') as file:
+    person_dct = json.load(file)
+
+print(person_dct)
+
