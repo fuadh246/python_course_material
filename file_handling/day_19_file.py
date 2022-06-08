@@ -71,3 +71,22 @@ with open('file_handling/json_example.json', encoding='utf-8') as file:
 
 print(person_dct)
 
+print()
+print()
+print()
+
+# work with CSV file
+
+import csv
+
+with open('file_handling/csv_example.csv') as file:
+    csv_reader = csv.reader(file,delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            print(f'column names are :{", ".join(row)}')
+            line_count+=1
+        else:
+            print(f'{row[0]} is a Student. He lives in {row[1]}, {row[2]}')
+            line_count+=1
+    print(f'TOTAL LINE = {line_count}')
