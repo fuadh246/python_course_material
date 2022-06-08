@@ -90,3 +90,27 @@ with open('file_handling/csv_example.csv') as file:
             print(f'{row[0]} is a Student. He lives in {row[1]}, {row[2]}')
             line_count+=1
     print(f'TOTAL LINE = {line_count}')
+
+header = ['name', 'area', 'country_code2', 'country_code3']
+datas = [['Afghanistan', 652090, 'AF', 'AFG'],['Afghanistan', 652090, 'AF', 'AFG'],['Afghanistan', 652090, 'AF', 'AFG']]
+datas2=[('smith, bob',2),('carol',3),('ted',4),('alice',5)]
+
+with open('file_handling/countries.csv', 'a', encoding='UTF8') as f:
+    writer = csv.writer(f)
+    # write the header
+    writer.writerow(header)
+    # write the data
+    for data in datas:
+        writer.writerow(data)
+
+with open('file_handling/countries.csv') as file:
+    csv_reader = csv.reader(file,delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            print(f'column names are :{", ".join(row)}')
+            line_count+=1
+        else:
+            print(f'{row[0]} is a Student. He lives in {row[1]}, {row[2]}')
+            line_count+=1
+    print(f'TOTAL LINE = {line_count}')
