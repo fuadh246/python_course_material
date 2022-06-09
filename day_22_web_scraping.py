@@ -58,7 +58,7 @@ with open('web_scraping.json', 'w', encoding='utf-8') as file:
         # print(list.text)
         line = list.text.splitlines()
         m_line = f'{line[1]}\n{line[2]}'
-        json.dump(m_line.splitlines(), file, ensure_ascii=False, indent=4)
+        #json.dump(m_line.splitlines(), file, ensure_ascii=False, indent=4)
 
 # with open('web_scraping.json', 'r', encoding='utf-8') as file:
 #     data = json.load(file)
