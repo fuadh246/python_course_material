@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}{% block content %}
+<div class="container">
+    <h1>Text Analysis Result </h1>
+    <div class="result-header">
+        <p>Total number of words: {{words}}</p>
+        <p>The most frequent word: {{mostF}}</p>
+    </div>
+    <table>				
+        <tr>				
+          <th>Word</th>
+          <th>Count</th>
+        </tr> 
+        <tr>
+        {% for word in top_10_words%}
+        <tr>
+            <td>{{word[0]}}</td>
+            <td>{{word[1]}}</td>
+        </tr>   
+        {%endfor%}  
+      </table>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container">
+    <h1>
+        Welcome to {{name}}
+    </h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dicta eos nemo vel qui perspiciatis
+        quam a tempore saepe aut sed, enim quos esse laudantium eius asperiores veritatis ea? Nemo.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae sequi eius ab amet? Debitis, 
+        eveniet odio ad dicta ipsam repellendus voluptate modi vel ut, tenetur porro libero facere error numquam?
+        Quisquam perspiciatis totam ipsam nobis aperiam debitis, autem tempora exercitationem?
+    </p>
+    <ul class="tech-lists">
+        {% for tech in techs%}
+        <li class="tech">{{tech}}</li>
+        {%endfor%}
+    </ul>
+    
+</div>
+
+{% endblock %}
